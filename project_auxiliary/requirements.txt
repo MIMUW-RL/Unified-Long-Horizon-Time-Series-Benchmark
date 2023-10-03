@@ -1,0 +1,10 @@
+h5py
+jupyter
+matplotlib
+notebook
+numpy
+torch
+neptune-client==0.14.2
+gdown==4.6.0
+opt_einsum
+einops
