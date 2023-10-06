@@ -22,9 +22,9 @@ The benchmark datasets will be downloaded to `data/` dir, e.g., `data/hopper_med
 - `--enc_dim` - encoder's dimension (if applicable)
 - `--hidden_dim` - model's hidden dimension (if applicable)
 - `--batch_size` - batch size of the workflow
-- `--pretraining_len` - starting trajectory length for the curriculum learning
+- `--pretraining_len` - starting trajectory length for the curriculum learning (if CL is used)
 - `--dec_depth` - decoder's depth (if applicable)
-- `--use_neptune` - 1 if use neptune.ai for monitoring
+- `--use_neptune` - add optional argument --use_neptune 1 , if using neptune.ai for monitoring
 
 
 ## Requirements:
@@ -33,12 +33,12 @@ The benchmark datasets will be downloaded to `data/` dir, e.g., `data/hopper_med
 
 ## Run (examples):
 
-1. `python3 src/train.py fullconfig_247 test_1 noload --problem_spec_name m4_short --model_instance latent_ltsf_nlinear_96 --enc_dim 32 --latent_dim 2 --batch_size 64 --use_neptune 0`
-2. `python3 src/train.py fullconfig_1000 "hopperseed500" noload --latent_dim 50 --problem_spec_name large_hopper_medium_dense_1000 --model_instance "obs_ltsf_nlinear_500" --enc_dim 50 --hidden_dim 100 --batch_size 100 --use_neptune 0`
-3. `python3 src/train.py wsode_2000 "deeparwsmackey96" noload --latent_dim 8 --problem_spec_name large_mackey_glass_2000 --model_instance "lstm_3_96" --hidden_dim 128 --batch_size 100 --use_neptune 0`
-4. `python3 src/train.py fullconfig_1000 "spacetimech250" noload --hidden_dim 256 --problem_spec_name large_cahn_hillard_1000 --model_instance "spacetime_250" --batch_size 5 --use_neptune 0`
-5. `python3 src/train.py fullconfig_1000 "deeparvanillahopperdeter500" noload --latent_dim 50 --problem_spec_name large_hopper_medium_deter_1000 --model_instance "lstm_3_500" --hidden_dim 128 --batch_size 100 --use_neptune 0`
-6. `python3 src/train.py fullconfig_1000 "lstmwalkerdeter96" noload --latent_dim 50 --problem_spec_name large_walker_medium_deter_1000 --model_instance "dlstm_3_96" --enc_dim 50 --hidden_dim 100 --batch_size 100 --use_neptune 0`
+1. `python3 src/train.py fullconfig_247 test_1 noload --problem_spec_name m4_short --model_instance latent_ltsf_nlinear_96 --enc_dim 32 --latent_dim 2 --batch_size 64`
+2. `python3 src/train.py fullconfig_1000 "hopperseed500" noload --latent_dim 50 --problem_spec_name large_hopper_medium_dense_1000 --model_instance "obs_ltsf_nlinear_500" --enc_dim 50 --hidden_dim 100 --batch_size 100`
+3. `python3 src/train.py clconfig_2000 "deeparwsmackey96" noload --latent_dim 8 --problem_spec_name large_mackey_glass_2000 --model_instance "lstm_3_96" --hidden_dim 128 --batch_size 100 --pretraining_len 100`
+4. `python3 src/train.py fullconfig_1000 "spacetimech250" noload --hidden_dim 256 --problem_spec_name large_cahn_hillard_1000 --model_instance "spacetime_250" --batch_size 5`
+5. `python3 src/train.py fullconfig_1000 "deeparvanillahopperdeter500" noload --latent_dim 50 --problem_spec_name large_hopper_medium_deter_1000 --model_instance "lstm_3_500" --hidden_dim 128 --batch_size 100`
+6. `python3 src/train.py fullconfig_1000 "lstmwalkerdeter96" noload --latent_dim 50 --problem_spec_name large_walker_medium_deter_1000 --model_instance "dlstm_3_96" --enc_dim 50 --hidden_dim 100 --batch_size 100`
 
 _Remark: All of the reported experiments in the paper were performed with uniform 8h cap, i.e., with `timeout 8h`;_
 
@@ -54,7 +54,7 @@ We also introduce a variant of DeepAR with curriculum learning (CL). This enhanc
 
 ## ML-Ops:
 
-We implement support for neptune.ai ml-ops that can be used by setting `--use_neptune 1` and appropriately configuring https://github.com/MIMUW-RL/Unified-Long-Horizon-Time-Series-Benchmark/blob/main/src/utils/neptune_logging.py.
+We implement support for neptune.ai ml-ops that can be used by adding `--use_neptune 1` and appropriately configuring https://github.com/MIMUW-RL/Unified-Long-Horizon-Time-Series-Benchmark/blob/main/src/utils/neptune_logging.py.
 
 ### Example reports:
-Per each run in the benchmark we store metrics at neptune.ai, i.e., https://app.neptune.ai/cyranka/bench/runs/BEN-1530. Complete benchmark runs available under request.
+Per each run in the benchmark we store metrics at Neptune.ai, i.e., https://app.neptune.ai/cyranka/bench/runs/BEN-1530. Complete benchmark runs available under request.
