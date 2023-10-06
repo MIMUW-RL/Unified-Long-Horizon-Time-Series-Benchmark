@@ -4,7 +4,7 @@
 ### Download data (do it first)
 - `python3 src/download_data.py`
 
-The benchmark datasets will be downloaded to `data/` dir, e.g., `data/hopper_medium_dense/dataset_large.hdf5`.
+The benchmark datasets will be downloaded to `data/` dir, e.g., `data/hopper_medium_dense/dataset_large.hdf5`, or download manually from https://drive.google.com/drive/folders/1IfAHpka3hu2kM4j6ebzAPnGpLpSMnTlf?usp=drive_link
 
 ### run models
 - `python3 src/train_py <configuration_name> <checkpoint_name> <noload|load_last|load_best> --problem_spec_name X --model_instance Y [<other model/workflow dependent arguments>]`
