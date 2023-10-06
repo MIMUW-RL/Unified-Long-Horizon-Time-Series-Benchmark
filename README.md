@@ -8,6 +8,8 @@
 
 ### CLI arguments:
 - `configuration_name` - positional - name of the configuration, defined in src/configurations/configurations_ode.py
+    - `fullconfig_N` - regular training for trajectories of length `N` without Curriculum Learning
+    - `clconfig_N` - training for trajectories of length `N` with Curriculum Learning
 - `checkpoint_name` - positional - name of the checkpoint
 - `noload|load_last|load_best` - start from a fresh checkpoint | start from the last checkpoint | start from the best checkpoint (validation MSE)
 - `--problem_spec_name` - name of the problem spec (preprocessed dataset), defined in src/problem_specs/instances.py
@@ -20,9 +22,10 @@
 - `--dec_depth` - decoder's depth (if applicable)
 - `--use_neptune` - 1 if use neptune.ai for monitoring
 
+
 ## Requirements:
 - install project_auxiliary/requirements.txt
 
 
 ## Run (example):
-`python3 src/train.py ode_full_247 test_1 noload --problem_spec_name m4_short --model_instance latent_ltsf_nlinear_96 --enc_dim 32 --latent_dim 2 --batch_size 64 --pretraining_len 100 --use_neptune 1`
+`python3 src/train.py fullconfig_247 test_1 noload --problem_spec_name m4_short --model_instance latent_ltsf_nlinear_96 --enc_dim 32 --latent_dim 2 --batch_size 64 --pretraining_len 100 --use_neptune 1`
