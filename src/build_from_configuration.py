@@ -5,7 +5,6 @@ from model import LTSF, FullModel, LSTMModel, SpaceTime
 from model.components.mlp import MLP
 from model.components.encoders import (
     RecognitionWaveNet,
-    MLPEnc,
     MultIdEnc,
     LSTMEnc,
 )
@@ -37,17 +36,6 @@ def build_mult_wavenet_enc(enc):
     )
 
 
-def build_mult_mlp_enc(enc):
-    return MLPEnc(
-        encoded_len=enc["encoded_len"],
-        latent_dim=enc["latent_dim"],
-        obs_dim=enc["obs_dim"],
-        hidden_dim=enc["hidden_dim"],
-        depth=enc["depth"],
-        activation=enc["activation"],
-    )
-
-
 def build_mult_id_enc(enc):
     return MultIdEnc(enc["encoded_len"])
 
@@ -67,8 +55,6 @@ def build_enc(enc):
         return build_wavenet_enc(enc)
     elif enc["name"] == "MultWaveNetEnc":
         return build_mult_wavenet_enc(enc)
-    elif enc["name"] == "MultMLPEnc":
-        return build_mult_mlp_enc(enc)
     elif enc["name"] == "MultIdEnc":
         return build_mult_id_enc(enc)
     elif enc["name"] == "LSTMEnc":

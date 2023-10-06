@@ -156,12 +156,12 @@ class ODEINTWEventsTrainer(BaseTrainer):
         ode_optimizer = EMAOptimizer(
             ode_optimizer, utils.DEFAULT_DEVICE, decay=0.9999
         )
-
         seq_len_short = self.pretraining_len
-        while seq_len_short < int(1.0 * seq_len):
-            if not self.increasing_seq_lens:
-                break
 
+        if self.increasing_seq_lens and seq_len_short is None:
+            raise ValueError("--pretraining_len is not set")
+
+        while self.increasing_seq_lens and seq_len_short < int(1.0 * seq_len):
             eps = (
                 self.pretraining_epochs
                 if seq_len_short == self.pretraining_len

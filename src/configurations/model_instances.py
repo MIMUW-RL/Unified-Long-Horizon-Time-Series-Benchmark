@@ -1,4 +1,4 @@
-from .common import id_dec, mult_id_enc, mult_wavenet_enc, mlp, classifier, lstm_enc, mult_mlp_enc
+from .common import id_dec, mult_id_enc, mult_wavenet_enc, mlp, classifier, lstm_enc
 
 
 def standard_node_1(latent_dim, obs_dim, enc_dim, hidden_dim, **kwargs):

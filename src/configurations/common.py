@@ -163,28 +163,6 @@ def lstm_enc(
     }
 
 
-def mult_mlp_enc(hidden_dim, latent_dim, obs_dim, depth, activation, encoded_len):
-    return {
-        "name": "MultMLPEnc",
-        "hidden_dim": hidden_dim,
-        "depth": depth,
-        "activation": activation,
-        "latent_dim": latent_dim,
-        "obs_dim": obs_dim,
-        "encoded_len": encoded_len,
-    }
-
-
-def ode_rnn_enc(latent_ode, rnn, latent_dim, rec_len):
-    return {
-        "name": "RecognitionODERNN",
-        "latent_ode": latent_ode,
-        "rnn": rnn,
-        "latent_dim": latent_dim,
-        "rec_len": rec_len,
-    }
-
-
 def mult_id_enc(encoded_len):
     return {
         "name": "MultIdEnc",

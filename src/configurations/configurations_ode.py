@@ -2,8 +2,7 @@ from problem_specs.instances import get_obs_dim
 
 from . import model_instances  # noqa
 
-
-def wsode_1000(**kwargs):
+def clconfig_1000(**kwargs):
     latent_dim = kwargs["latent_dim"]
     problem_spec_name = kwargs["problem_spec_name"]
     model_instance_name = kwargs["model_instance"]
@@ -63,166 +62,98 @@ def wsode_1000(**kwargs):
         "T": 0.2,
     }
 
-def wsode_1000_lesstraj(**kwargs):
-    cf = wsode_1000(**kwargs)
+def clconfig_1000_lesstraj(**kwargs):
+    cf = clconfig_1000(**kwargs)
     cf["trainer_args"]["trajectories_per_epoch"] = 3000
     cf["trainer_args"]["pretraining_epochs"] = 5
     return cf
 
-def ode_full_1000(**kwargs):
-    cf = wsode_1000(**kwargs)
+def fullconfig_1000(**kwargs):
+    cf = clconfig_1000(**kwargs)
     cf["trainer_args"]["pretraining_epochs"] = 0
     cf["trainer_args"]["increasing_seq_lens"] = False
     cf["trainer_args"]["train_enc_dec_after_pretraining"] = True
     return cf
 
-def ode_full_1000_smallr(**kwargs):
-    cf = wsode_1000(**kwargs)
-    cf["trainer_args"]["max_lr"] = 0.00001
-    cf["trainer_args"]["pretraining_epochs"] = 0
-    cf["trainer_args"]["increasing_seq_lens"] = False
-    cf["trainer_args"]["train_enc_dec_after_pretraining"] = True
-    return cf
-
-def wsode_2000(**kwargs):
-    cf = wsode_1000(**kwargs)
+def clconfig_2000(**kwargs):
+    cf = clconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 2000
     cf["trainer_args"]["seq_len_step"] = 100
     cf["trainer_args"]["pretraining_epochs"] = 5
     return cf
 
-def wsode_2000_lesstraj(**kwargs):
-    cf = wsode_2000(**kwargs)
-    cf["trainer_args"]["trajectories_per_epoch"] = 1000
-    cf["trainer_args"]["pretraining_epochs"] = 2
-    return cf
-
-def wsode_500(**kwargs):
-    cf = wsode_1000(**kwargs)
+def clconfig_500(**kwargs):
+    cf = clconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 500
     return cf
 
-def wsode_288(**kwargs):
-    cf = wsode_1000(**kwargs)
+def clconfig_288(**kwargs):
+    cf = clconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 288
     return cf
 
-def ode_full_288(**kwargs):
-    cf = ode_full_1000(**kwargs)
+def fullconfig_288(**kwargs):
+    cf = fullconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 288
     return cf
 
-def ode_full_288_less_train(**kwargs):
-    cf = ode_full_1000(**kwargs)
-    cf["trainer_args"]["train_seq_len"] = 288
-    cf["trainer_args"]["trajectories_per_epoch"] = 100
-    return cf
-
-def ode_full_288_smalllr(**kwargs):
-    cf = ode_full_288(**kwargs)
-    cf["trainer_args"]["max_lr"] = 0.00001
-    return cf
-
-def wsode_500_lr001(**kwargs):
-    cf = wsode_1000(**kwargs)
-    cf["trainer_args"]["train_seq_len"] = 500
-    cf["trainer_args"]["max_lr"] = 0.001
-    return cf
-
-
-def wsode_500_lr001_noretrain(**kwargs):
-    cf = wsode_1000(**kwargs)
-    cf["trainer_args"]["train_seq_len"] = 500
-    cf["trainer_args"]["max_lr"] = 0.001
-    cf["trainer_args"]["train_enc_dec_after_pretraining"] = False
-    cf["trainer_args"]["pretraining_epochs"] = 50
-    return cf
-
-
-def wsode_200(**kwargs):
-    cf = wsode_1000(**kwargs)
+def clconfig_200(**kwargs):
+    cf = clconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 200
     cf["trainer_args"]["max_lr"] = 0.001
     return cf
 
-
-def ode_full_500(**kwargs):
-    cf = ode_full_1000(**kwargs)
+def fullconfig_500(**kwargs):
+    cf = fullconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 500
     return cf
 
-def ode_full_1440(**kwargs):
-    cf = ode_full_1000(**kwargs)
+def fullconfig_1440(**kwargs):
+    cf = fullconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 1440
     return cf
 
-def wsode_1440(**kwargs):
-    cf = wsode_1000(**kwargs)
+def clconfig_1440(**kwargs):
+    cf = clconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 1440
     return cf
 
-def ode_full_1440_smalllr(**kwargs):
-    cf = ode_full_1440(**kwargs)
-    cf['trainer_args']['max_lr'] = 0.0001
-    return cf
-
-def ode_full_2000(**kwargs):
-    cf = ode_full_1000(**kwargs)
+def fullconfig_2000(**kwargs):
+    cf = fullconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 2000
     return cf
 
-def ode_full_2000_smallr(**kwargs):
-    cf = ode_full_2000(**kwargs)
-    cf["trainer_args"]["max_lr"] = 0.0001
-    return cf
-
-
-def ode_full_200(**kwargs):
-    cf = ode_full_1000(**kwargs)
+def fullconfig_200(**kwargs):
+    cf = fullconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 200
     return cf
 
-
-def wsode_192(**kwargs):
-    cf = wsode_1000(**kwargs)
+def clconfig_192(**kwargs):
+    cf = clconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 192
     return cf
 
-
-def ode_full_192(**kwargs):
-    cf = ode_full_1000(**kwargs)
+def fullconfig_192(**kwargs):
+    cf = fullconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 192
     return cf
 
-
-def wsode_247(**kwargs):
-    cf = wsode_1000(**kwargs)
+def clconfig_247(**kwargs):
+    cf = clconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 247
     return cf
 
-
-def ode_full_247(**kwargs):
-    cf = ode_full_1000(**kwargs)
+def fullconfig_247(**kwargs):
+    cf = fullconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 247
     return cf
 
-def ode_full_247_smalllr(**kwargs):
-    cf = ode_full_247(**kwargs)
-    cf['trainer_args']['max_lr'] = 0.0001
-    return cf
-
-def wsode_228(**kwargs):
-    cf = wsode_1000(**kwargs)
+def clconfig_228(**kwargs):
+    cf = clconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 228
     return cf
 
-
-def ode_full_228(**kwargs):
-    cf = ode_full_1000(**kwargs)
+def fullconfig_228(**kwargs):
+    cf = fullconfig_1000(**kwargs)
     cf["trainer_args"]["train_seq_len"] = 228
-    return cf
-
-def ode_full_228_smalllr(**kwargs):
-    cf = ode_full_228(**kwargs)
-    cf["trainer_args"]["max_lr"] = 0.0001
     return cf
