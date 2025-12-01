@@ -834,6 +834,31 @@ def dlstm_3_96(obs_dim, hidden_dim, **kwargs):
         "encoded_len": 96,
     }
 
+def gru_3_96(obs_dim, hidden_dim, **kwargs):
+    assert obs_dim is not None
+    assert hidden_dim is not None
+    return {
+        "type": "gru",
+        "obs_dim": obs_dim,
+        "hidden_dim": hidden_dim,
+        "depth": 3,
+        "separate_gru_encoder": True,
+        "encoded_len": 96,
+    }
+
+def gru_3_144(obs_dim, hidden_dim, **kwargs):
+    assert obs_dim is not None
+    assert hidden_dim is not None
+    return {
+        "type": "gru",
+        "obs_dim": obs_dim,
+        "hidden_dim": hidden_dim,
+        "depth": 3,
+        "separate_gru_encoder": True,
+        "encoded_len": 144,
+    }
+
+
 def dlstm_3_144(obs_dim, hidden_dim, **kwargs):
     assert obs_dim is not None
     assert hidden_dim is not None
@@ -843,6 +868,18 @@ def dlstm_3_144(obs_dim, hidden_dim, **kwargs):
         "hidden_dim": hidden_dim,
         "depth": 3,
         "separate_lstm_encoder": True,
+        "encoded_len": 144,
+    }
+
+def gru_3_168(obs_dim, hidden_dim, **kwargs):
+    assert obs_dim is not None
+    assert hidden_dim is not None
+    return {
+        "type": "gru",
+        "obs_dim": obs_dim,
+        "hidden_dim": hidden_dim,
+        "depth": 3,
+        "separate_gru_encoder": True,
         "encoded_len": 144,
     }
 
@@ -870,6 +907,18 @@ def dlstm_3_250(obs_dim, hidden_dim, **kwargs):
         "encoded_len": 250,
     }
 
+def gru_3_250(obs_dim, hidden_dim, **kwargs):
+    assert obs_dim is not None
+    assert hidden_dim is not None
+    return {
+        "type": "gru",
+        "obs_dim": obs_dim,
+        "hidden_dim": hidden_dim,
+        "depth": 3,
+        "separate_gru_encoder": True,
+        "encoded_len": 250,
+    }
+
 def dlstm_3_336(obs_dim, hidden_dim, **kwargs):
     assert obs_dim is not None
     assert hidden_dim is not None
@@ -879,6 +928,18 @@ def dlstm_3_336(obs_dim, hidden_dim, **kwargs):
         "hidden_dim": hidden_dim,
         "depth": 3,
         "separate_lstm_encoder": True,
+        "encoded_len": 336,
+    }
+
+def gru_3_336(obs_dim, hidden_dim, **kwargs):
+    assert obs_dim is not None
+    assert hidden_dim is not None
+    return {
+        "type": "gru",
+        "obs_dim": obs_dim,
+        "hidden_dim": hidden_dim,
+        "depth": 3,
+        "separate_gru_encoder": True,
         "encoded_len": 336,
     }
 
@@ -894,6 +955,18 @@ def dlstm_3_500(obs_dim, hidden_dim, **kwargs):
         "encoded_len": 500,
     }
 
+def gru_3_500(obs_dim, hidden_dim, **kwargs):
+    assert obs_dim is not None
+    assert hidden_dim is not None
+    return {
+        "type": "gru",
+        "obs_dim": obs_dim,
+        "hidden_dim": hidden_dim,
+        "depth": 3,
+        "separate_gru_encoder": True,
+        "encoded_len": 500,
+    }
+
 def dlstm_3_720(obs_dim, hidden_dim, **kwargs):
     assert obs_dim is not None
     assert hidden_dim is not None
@@ -906,6 +979,18 @@ def dlstm_3_720(obs_dim, hidden_dim, **kwargs):
         "encoded_len": 720,
     }
 
+def gru_3_720(obs_dim, hidden_dim, **kwargs):
+    assert obs_dim is not None
+    assert hidden_dim is not None
+    return {
+        "type": "gru",
+        "obs_dim": obs_dim,
+        "hidden_dim": hidden_dim,
+        "depth": 3,
+        "separate_gru_encoder": True,
+        "encoded_len": 720,
+    }
+
 def dlstm_3_1000(obs_dim, hidden_dim, **kwargs):
     assert obs_dim is not None
     assert hidden_dim is not None
@@ -915,6 +1000,18 @@ def dlstm_3_1000(obs_dim, hidden_dim, **kwargs):
         "hidden_dim": hidden_dim,
         "depth": 3,
         "separate_lstm_encoder": True,
+        "encoded_len": 1000,
+    }
+
+def gru_3_1000(obs_dim, hidden_dim, **kwargs):
+    assert obs_dim is not None
+    assert hidden_dim is not None
+    return {
+        "type": "gru",
+        "obs_dim": obs_dim,
+        "hidden_dim": hidden_dim,
+        "depth": 3,
+        "separate_gru_encoder": True,
         "encoded_len": 1000,
     }
 

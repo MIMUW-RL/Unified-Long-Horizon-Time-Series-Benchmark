@@ -1,7 +1,7 @@
 import model
 import trainers
 import utils
-from model import LTSF, FullModel, LSTMModel, SpaceTime
+from model import LTSF, FullModel, LSTMModel, GRUModel, SpaceTime
 from model.components.mlp import MLP
 from model.components.encoders import (
     RecognitionWaveNet,
@@ -153,6 +153,8 @@ def build_model(model):
         return build_latent_ltsf_nlinear_model(model)
     elif model["type"] == "lstm":
         return build_lstm_model(model)
+    elif model["type"] == "gru":
+        return build_lstm_model(model)
     elif model["type"] == "spacetime":
         return build_spacetime_model(model)
     else:
@@ -206,6 +208,14 @@ def build_from_configuration(configuration, checkpoint_name):
             hidden_dim=model["hidden_dim"],
             depth=model["depth"],
             separate_lstm_encoder=model["separate_lstm_encoder"],
+            encoded_len=model["encoded_len"],
+        )
+    elif model["type"] == "gru":
+        full_model = GRUModel(
+            obs_dim=model["obs_dim"],
+            hidden_dim=model["hidden_dim"],
+            depth=model["depth"],
+            separate_gru_encoder=model["separate_gru_encoder"],
             encoded_len=model["encoded_len"],
         )
     elif model["type"] == "spacetime":

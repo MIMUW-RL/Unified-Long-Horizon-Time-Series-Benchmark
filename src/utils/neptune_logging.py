@@ -5,10 +5,10 @@ import neptune.new as neptune
 USE_NEPTUNE = True
 
 def project():
-    raise NotImplementedError("return the project name")
+    return 'cyranka/bench'
 
 def api_token():
-    raise NotImplementedError("return the api token")
+    return "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiJjYzJjZDZhZC1lZDE3LTQ3MWYtYjI1Yi1jMTVlYTYyMGNiMTYifQ=="
 
 def get_neptune_run(params, track_files_path):
     if not USE_NEPTUNE:
