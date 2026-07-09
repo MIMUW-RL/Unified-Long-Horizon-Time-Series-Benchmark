@@ -1,5 +1,5 @@
 # Unified Long-Horizon Time-Series Benchmark
-## results presented in the paper https://arxiv.org/abs/2309.15946 
+## results presented in the paper [Published in Neurocomputing](https://www.sciencedirect.com/science/article/pii/S092523122601489X)
 ## Usage
 ### Download data (do it first)
 - `python3 src/download_data.py`
@@ -52,9 +52,17 @@ Refer to https://drive.google.com/drive/folders/1S16bDiihE6xARB1uMN1AeWq5ByCqkTM
 
 We also introduce a variant of DeepAR with curriculum learning (CL). This enhanced model is demonstrated to outperform the vanilla DeepAR in our benchmark (see the plot above).
 
-## ML-Ops:
-
-We implement support for neptune.ai ml-ops that can be used by adding `--use_neptune 1` and appropriately configuring https://github.com/MIMUW-RL/Unified-Long-Horizon-Time-Series-Benchmark/blob/main/src/utils/neptune_logging.py.
-
-### Example reports:
-Per each run in the benchmark we store metrics at Neptune.ai, i.e., https://app.neptune.ai/cyranka/bench/runs/BEN-1530. Complete benchmark runs available under request.
+## Please cite
+```
+@article{CYRANKA2026134091,
+title = {Unified long-term time series forecasting benchmark},
+journal = {Neurocomputing},
+volume = {696},
+pages = {134091},
+year = {2026},
+issn = {0925-2312},
+doi = {https://doi.org/10.1016/j.neucom.2026.134091},
+url = {https://www.sciencedirect.com/science/article/pii/S092523122601489X},
+author = {Jacek Cyranka and Szymon Haponiuk}
+}
+```
